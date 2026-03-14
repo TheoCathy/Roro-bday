@@ -32,7 +32,7 @@ function openPosterModal(posterEl) {
   const inner = document.createElement('div')
   inner.className = 'inner'
 
-  // if the poster contains an <img id="poster-img"> use that, otherwise clone the poster div
+
   const img = posterEl.querySelector('#poster-img')
   if (img && img.src) {
     const big = document.createElement('img')
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const poster = document.getElementById('poster')
   if (poster) {
-    // If there's an <img id="poster-img"> inside the poster, use it as the background
+
     const posterImg = document.getElementById('poster-img')
     if (posterImg && posterImg.src) {
       poster.style.backgroundImage = `url('${posterImg.src}')`
