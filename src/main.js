@@ -66,45 +66,21 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  const poster = document.getElementById('poster')
-  if (poster) {
+  const poster    = document.getElementById('poster')
+  const posterImg = document.getElementById('poster-img')
 
-    const posterImg = document.getElementById('poster-img')
-    if (posterImg && posterImg.src) {
-      // Use poster image as poster background
-      poster.style.backgroundImage = `url('${posterImg.src}')`
-      poster.classList.add('has-bg')
-      // hide the inline image (we'll use it in the modal instead)
-      posterImg.style.display = 'none'
-
-      // Try to use a publish-friendly location first (/assets/...).
-      // Some hosts (Netlify) serve a `public` or `assets` folder differently; try /assets/IMG_5340.PNG first.
-      const publicPath = '/assets/IMG_5340.PNG'
-      const tryImg = new Image()
-      console.debug('[poster-debug] attempting to load public asset path:', publicPath)
-      tryImg.onload = () => {
-        console.debug('[poster-debug] public asset loaded successfully:', publicPath)
-        // if /assets/IMG_5340.PNG exists on the server, prefer it for the page background
-        const pageEl = document.querySelector('.page')
-        if (pageEl) {
-          pageEl.style.backgroundImage = `url('${publicPath}')`
-          pageEl.classList.add('has-poster-bg')
-          console.debug('[poster-debug] using public asset as page background:', publicPath)
-        }
-      }
-      tryImg.onerror = () => {
-        console.warn('[poster-debug] public asset not available at', publicPath, '- falling back to inline image src')
-        // fallback to using the inline poster image's src (this will be absolute to the deployed path)
-        const pageEl = document.querySelector('.page')
-        if (pageEl) {
-          pageEl.style.backgroundImage = `url('${posterImg.src}')`
-          pageEl.classList.add('has-poster-bg')
-          console.debug('[poster-debug] using inline poster image as page background:', posterImg.src)
-        }
-      }
-      tryImg.src = publicPath
+  if (poster && posterImg) {
+    // The image src is set in HTML to /assets/IMG_5340.PNG (served from public/ by Vite)
+    const imgSrc = posterImg.getAttribute('src')
+    // set poster block background
+    poster.style.backgroundImage = `url('${imgSrc}')`
+    poster.classList.add('has-bg')
+    // set whole page background
+    const pageEl = document.querySelector('.page')
+    if (pageEl) {
+      pageEl.style.backgroundImage = `url('${imgSrc}')`
+      pageEl.classList.add('has-poster-bg')
     }
-
     poster.addEventListener('click', () => openPosterModal(poster))
   }
 })
