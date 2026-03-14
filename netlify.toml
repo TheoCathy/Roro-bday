@@ -1,0 +1,6 @@
+[build]
+  publish = "."
+  command = ""
+
+[functions]
+  # leave empty — no Netlify Functions used
