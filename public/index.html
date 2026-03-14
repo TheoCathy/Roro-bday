@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/assets/IMG_5340.PNG" />
+  <title>Ro‑Ro's 1st Birthday</title>
+
+  <!-- Social preview (Open Graph / Twitter Card) — absolute URL required for scrapers -->
+  <meta property="og:title" content="Ro‑Ro turns 1! 🎉" />
+  <meta property="og:description" content="You're invited to Oluwadurotimi Daniel Olaniyan's 1st birthday celebration! Join us for cake, games and cuddles. Sunday 5th April, 3:30–7:30pm, Little Stoke Bristol." />
+  <meta property="og:image" content="https://durotimi-birthday.netlify.app/assets/IMG_5340.PNG" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://durotimi-birthday.netlify.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ro‑Ro turns 1! 🎉" />
+  <meta name="twitter:description" content="You're invited to Ro‑Ro's 1st birthday — cake, games and cuddles. Click to RSVP!" />
+  <meta name="twitter:image" content="https://durotimi-birthday.netlify.app/assets/IMG_5340.PNG" />
+  <link rel="image_src" href="https://durotimi-birthday.netlify.app/assets/IMG_5340.PNG" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+/* Boy-themed playful landing page styles using Indie Flower font */
+:root {
+  --bg1: #f3f9ff;
+  --bg2: #eef6ff;
+  --text: #1f3a5f;
+  --muted: #48698f;
+  --accent: #4da6ff;
+  --accent-2: #70d6ff;
+}
+* { box-sizing: border-box }
+html, body { height: 100%; margin: 0 }
+body {
+  font-family: 'Indie Flower', cursive, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: radial-gradient(circle at 20% 10%, rgba(77,166,255,0.06) 0%, transparent 10%),
+    radial-gradient(circle at 85% 85%, rgba(112,214,255,0.06) 0%, transparent 8%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  position: relative;
+}
+.header { text-align: center; margin-bottom: 18px }
+.header h1 { font-size: 64px; margin: 0; line-height: 0.9; color: var(--accent); text-shadow: 0 3px 0 rgba(255,255,255,0.6) }
+.subtitle { margin-top: 6px; color: rgb(10,230,254); font-size: 20px }
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,252,255,0.9));
+  backdrop-filter: blur(4px);
+  border-radius: 18px;
+  padding: 28px 36px;
+  box-shadow: 0 10px 30px rgba(31,58,95,0.06);
+  text-align: center;
+  max-width: 640px;
+  width: 100%;
+  position: relative;
+}
+.badge {
+  position: absolute; left: 20px; top: -20px;
+  background: var(--accent); color: white; font-weight: 700;
+  padding: 12px 16px; border-radius: 50%; font-size: 22px;
+  box-shadow: 0 6px 14px rgba(31,58,95,0.08);
+}
+.invite { font-size: 22px; margin: 6px 0 12px; color: var(--text) }
+.details { color: var(--muted); font-size: 16px; line-height: 1.45 }
+.actions { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap }
+.btn {
+  display: inline-block; padding: 10px 18px; border-radius: 999px;
+  text-decoration: none; border: 2px solid transparent;
+  background: var(--accent); color: white; cursor: pointer; font-size: 18px;
+  position: relative; z-index: 1;
+  transition: transform 180ms ease, box-shadow 200ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.btn.rsvp { background: transparent; color: var(--accent); border: 2px dashed rgba(77,166,255,0.35); --pulse: rgba(77,166,255,0.28) }
+.btn.gift { background: var(--accent-2); color: var(--text); --pulse: rgba(112,214,255,0.28) }
+.btn, .btn:hover, .btn:focus { cursor: pointer }
+.btn:active { transform: translateY(1px) }
+.btn:hover, .btn:focus { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(31,58,95,0.08) }
+.btn.rsvp:hover, .btn.rsvp:focus { background: var(--accent); color: #fff; border-color: var(--accent) }
+.btn.gift:hover, .btn.gift:focus { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: #06233a }
+.btn:focus-visible { outline: 3px solid rgba(77,166,255,0.18); outline-offset: 4px }
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn:hover, .btn:focus { transition: none; transform: none }
+}
+/* pulsing glow */
+.btn::after {
+  content: ''; position: absolute; inset: -6px; border-radius: inherit;
+  background: var(--pulse, rgba(77,166,255,0.2)); opacity: 0;
+  transform: scale(0.75); filter: blur(10px); pointer-events: none;
+}
+.btn.rsvp::after { animation: pulseAfter 2200ms infinite }
+.btn.gift::after { animation: pulseAfter 2400ms .35s infinite }
+@keyframes pulseAfter {
+  0%   { opacity: 0.9; transform: scale(0.75) }
+  60%  { opacity: 0.12; transform: scale(1.6) }
+  100% { opacity: 0; transform: scale(1.9) }
+}
+@media (prefers-reduced-motion: reduce) { .btn::after { animation: none !important } }
+.footer { margin-top: 18px; color: var(--muted); font-size: 14px }
+/* Poster */
+.poster-wrap { max-width: 720px; width: 100%; margin: 16px auto; text-align: center }
+.poster {
+  height: 220px; border-radius: 12px;
+  background: linear-gradient(135deg, #dff4ff, #bfe9ff);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px rgba(31,58,95,0.06); cursor: pointer;
+  position: relative; overflow: hidden;
+}
+.poster-content h2 { font-size: 36px; margin: 0; color: var(--text) }
+.poster.has-bg { background-color: transparent; background-repeat: no-repeat; background-size: cover; background-position: center }
+.poster.has-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,20,40,0.12), rgba(10,20,40,0.04)) }
+.poster.has-bg .poster-content { position: relative; z-index: 2; background: rgba(255,255,255,0.66); padding: 10px 14px; border-radius: 8px }
+.poster-sub { margin-top: 6px; color: var(--muted) }
+.poster-note { font-size: 13px; color: rgba(255,255,255,0.9); margin-top: 8px }
+/* page background when poster applied */
+.page.has-poster-bg { background-repeat: no-repeat; background-size: cover; background-position: center }
+.page.has-poster-bg::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(36,36,36,0.925));
+  pointer-events: none;
+}
+.page.has-poster-bg > * { position: relative; z-index: 1 }
+/* Facts */
+.facts { max-width: 980px; margin: 18px auto; padding: 18px }
+.facts h2 { text-align: center; margin: 0 0 12px; color: rgb(10,230,254) }
+.facts-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4,1fr); gap: 12px }
+.facts-grid li { background: rgba(255,255,255,0.9); padding: 14px; border-radius: 10px; box-shadow: 0 6px 14px rgba(31,58,95,0.04); font-size: 15px; color: var(--muted); text-align: left }
+.facts-grid li strong { color: var(--accent); margin-right: 6px }
+/* confetti */
+.confetti { position: fixed; left: 0; top: 0; width: 10px; height: 14px; opacity: 0.95; pointer-events: none; z-index: 9999; transform-origin: center; animation: fall 1500ms linear forwards; border-radius: 3px }
+@keyframes fall {
+  0%   { transform: translateY(-10vh) rotate(0deg); opacity: 1 }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.9 }
+}
+/* modal */
+.poster-modal { position: fixed; inset: 0; background: rgba(10,20,40,0.6); display: flex; align-items: center; justify-content: center; z-index: 10000 }
+.poster-modal .inner { max-width: 92vw; max-height: 92vh; background: linear-gradient(180deg,#fff,#f7fbff); padding: 20px; border-radius: 10px; box-shadow: 0 20px 40px rgba(10,20,40,0.4); display: flex; align-items: center; justify-content: center }
+.poster-modal img, .poster-modal .poster { max-width: 100%; max-height: 80vh; border-radius: 8px }
+/* responsive */
+@media (max-width:880px) { .facts-grid { grid-template-columns: repeat(2,1fr) } .poster { height: 180px } }
+@media (max-width:520px) { .header h1 { font-size: 44px } .card { padding: 20px; border-radius: 16px } .facts-grid { grid-template-columns: 1fr } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Ro‑Ro turns 1!</h1>
+      <p class="subtitle">You're invited to a playful birthday celebration</p>
+    </header>
+
+    <main class="card">
+      <div class="badge">1</div>
+      <p class="invite">Join us for cake, games and cuddles</p>
+      <p class="details">
+        <strong>Date:</strong> Sunday, April 5th<br>
+        <strong>Time:</strong> 3:30–7:30pm<br>
+        <strong>Location:</strong> Little Stoke Community Hall, Little Stoke Bristol BS34 6HR
+      </p>
+      <div class="actions">
+        <a id="rsvp-link" class="btn rsvp" href="https://tally.so/r/dWALaA" target="_blank" rel="noopener">RSVP</a>
+        <a id="gift-link" class="btn gift" href="https://www.myregistry.com/wishlist/dolapo-olaniyan-and-seyi-olaniyan-bristol-england/5345325" target="_blank" rel="noopener">Gift Registry</a>
+      </div>
+    </main>
+
+    <!-- Poster / Flyer (click to view larger) -->
+    <section class="poster-wrap">
+      <div id="poster" class="poster">
+        <img id="poster-img" src="assets/IMG_5340.PNG" alt="Ro‑Ro Birthday Flyer" style="display:none">
+        <div class="poster-content">
+          <h2>Ro‑Ro's 1st Birthday</h2>
+          <p class="poster-sub">Come celebrate with us!</p>
+        </div>
+      </div>
+      <p class="poster-note">Click poster to view larger.</p>
+    </section>
+
+    <!-- 12 Facts section -->
+    <section id="facts" class="facts">
+      <h2>12 Facts About Ro‑Ro</h2>
+      <ul class="facts-grid">
+        <li><strong>1.</strong> My full name is Oluwadurotimi Daniel Olaniyan</li>
+        <li><strong>2.</strong> I was born at Southmead Hospital</li>
+        <li><strong>3.</strong> My nicknames are Ro-Ro, Robobo, Rotimeme, Rotero and Rotisimo</li>
+        <li><strong>4.</strong> I sat up with support at 6 months</li>
+        <li><strong>5.</strong> I crawled at 9 months</li>
+        <li><strong>6.</strong> I stood up with help at 10 months</li>
+        <li><strong>7.</strong> My favorite food is potato porridge and chicken</li>
+        <li><strong>8.</strong> I started to clap my hands at 11 months</li>
+        <li><strong>9.</strong> I have 6 teeth</li>
+        <li><strong>10.</strong> My first holiday was at Blackpool</li>
+        <li><strong>11.</strong> My first Christmas was at Peterborough</li>
+        <li><strong>12.</strong> First country I visited was Germany</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+function makeConfettiPiece() {
+  const el = document.createElement('div')
+  el.className = 'confetti'
+  const colors = ['#4DA6FF','#70D6FF','#2E86FF','#A1D8FF','#4DD9B4']
+  const size = Math.floor(Math.random() * 12) + 8
+  el.style.width = size + 'px'
+  el.style.height = Math.floor(size * 1.2) + 'px'
+  el.style.left = Math.random() * 100 + 'vw'
+  el.style.background = colors[Math.floor(Math.random() * colors.length)]
+  el.style.borderRadius = Math.random() * 50 + '%'
+  el.style.transform = 'rotate(' + Math.random() * 360 + 'deg)'
+  el.style.animationDelay = Math.random() * 200 + 'ms'
+  return el
+}
+function burstConfetti(count) {
+  for (let i = 0; i < count; i++) {
+    const p = makeConfettiPiece()
+    document.body.appendChild(p)
+    p.addEventListener('animationend', () => p.remove())
+  }
+}
+function openPosterModal(posterEl) {
+  const overlay = document.createElement('div')
+  overlay.className = 'poster-modal'
+  const inner = document.createElement('div')
+  inner.className = 'inner'
+  const img = document.getElementById('poster-img')
+  if (img && img.getAttribute('src')) {
+    const big = document.createElement('img')
+    big.src = img.getAttribute('src')
+    big.alt = 'Ro‑Ro Birthday Poster'
+    inner.appendChild(big)
+  } else {
+    const clone = posterEl.cloneNode(true)
+    clone.classList.remove('poster')
+    clone.style.maxWidth = '720px'
+    inner.appendChild(clone)
+  }
+  overlay.appendChild(inner)
+  document.body.appendChild(overlay)
+  function close() { overlay.remove() }
+  overlay.addEventListener('click', e => { if (e.target === overlay) close() })
+  document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc) } })
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const posterImg = document.getElementById('poster-img')
+  const poster    = document.getElementById('poster')
+  const pageEl    = document.querySelector('.page')
+
+  if (poster && posterImg) {
+    const imgSrc = posterImg.getAttribute('src')
+    // set poster block background
+    poster.style.backgroundImage = "url('" + imgSrc + "')"
+    poster.classList.add('has-bg')
+    // set page background
+    if (pageEl) {
+      pageEl.style.backgroundImage = "url('" + imgSrc + "')"
+      pageEl.classList.add('has-poster-bg')
+    }
+    poster.addEventListener('click', () => openPosterModal(poster))
+  }
+})
+  </script>
+</body>
+</html>
